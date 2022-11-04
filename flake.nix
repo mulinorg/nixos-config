@@ -10,10 +10,18 @@
     nixpkgs.url = "github:nixos/nixpkgs/release-22.05";
   };
 
-  nixConfig.substituters = [
-    "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-    "https://cache.nixos.org/"
-  ];
+  nixConfig = {
+    trusted-substituters = [
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+      "https://cache.nixos.org/"
+    ];
+    substitute = true;
+    substituters = [
+      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+      "https://cache.nixos.org/"
+    ];
+  };
+
 
   outputs = { self, nixpkgs-unstable, nixpkgs, home-manager }:
     let
