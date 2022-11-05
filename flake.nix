@@ -10,19 +10,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/release-22.05";
   };
 
-  nixConfig = {
-    trusted-substituters = [
-      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-      "https://cache.nixos.org/"
-    ];
-    substitute = true;
-    substituters = [
-      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-      "https://cache.nixos.org/"
-    ];
-  };
-
-
   outputs = { self, nixpkgs-unstable, nixpkgs, home-manager }:
     let
       system = "x86_64-linux";
@@ -36,7 +23,7 @@
           inherit system;
           modules = [
             ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
-            ./configuration.nix
+            ./hosts/vm/configuration.nix
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

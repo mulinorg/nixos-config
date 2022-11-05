@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
-  authKey = builtins.replaceStrings [ "\n" ] [ "" ] (builtins.readFile ../../ssh/auth.pub); in
+  authKey = lib.strings.fileContents ../../ssh/auth.pub; in
 {
   users.users = {
     mulin = {

@@ -1,7 +1,9 @@
-let signKey = builtins.readFile ../../ssh/sign.pub; in
+{ lib, ... }:
+
+let signKey = lib.strings.fileContents ../../ssh/sign.pub; in
 {
   home.file = {
-    ".ssh/allowed_signers".text = "mulin@mulin.org " + signKey;
+    ".ssh/allowed_signers".text = "mulin@mulin.org " + signKey + "\n";
   };
 
   programs = {
@@ -14,7 +16,7 @@ let signKey = builtins.readFile ../../ssh/sign.pub; in
       };
       lfs.enable = true;
       signing = {
-        key = builtins.replaceStrings [ "\n" ] [ "" ] signKey;
+        key = signKey;
         signByDefault = true;
       };
       userEmail = "mulin@mulin.org";
