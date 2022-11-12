@@ -18,11 +18,6 @@
       device = "/dev/disk/by-label/boot";
       fsType = "vfat";
     };
-
-    "/data" = {
-      device = "/dev/disk/by-label/data";
-      fsType = "ext4";
-    };
   };
 
   swapDevices = [{ device = "/dev/disk/by-label/swap"; }];
