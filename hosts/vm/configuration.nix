@@ -13,9 +13,9 @@
 
   nix.settings = {
     accept-flake-config = true;
-    substituters = [
-      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-    ];
+   # substituters = [
+   #    "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+   #  ];
   };
 
   boot.loader.systemd-boot.enable = true;
