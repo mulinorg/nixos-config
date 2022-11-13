@@ -10,12 +10,12 @@
     nixpkgs.url = "github:nixos/nixpkgs/release-22.05";
   };
 
-  nixConfig = {
-    accept-flake-config = true;
-    substituters = [
-      "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
-    ];
-  };
+  # nixConfig = {
+  #   accept-flake-config = true;
+  #   substituters = [
+  #     "https://mirrors.tuna.tsinghua.edu.cn/nix-channels/store"
+  #   ];
+  # };
 
   outputs = { self, nixpkgs-unstable, nixpkgs, home-manager }:
     let
